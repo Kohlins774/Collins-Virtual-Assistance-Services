@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Collins Assistant Services — professional virtual assistant support for busy professionals and growing businesses.">
+<title>Collins Assistant Services | Virtual Assistant</title>
+
+<style>
+:root{--ink:#111827;--muted:#667085;--blue:#3157d5;--blue2:#2444ad;--soft:#f5f7fb;--white:#fff;--line:#e6eaf0;--dark:#111827}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{font-family:Inter,Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+
+a{text-decoration:none;color:inherit}.container{width:min(1120px,92%);margin:auto}
+
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+
+nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+
+.brand{font-weight:800;font-size:1.08rem;letter-spacing:-.3px}.brand span{color:var(--blue)}
+
+.navlinks{display:flex;gap:27px;align-items:center}.navlinks a{font-size:.91rem;color:#475467}.navlinks a:hover{color:var(--blue)}
+
+.nav-cta{padding:10px 16px!important;background:var(--blue);color:#fff!important;border-radius:8px}
+
+.menu{display:none;background:none;border:0;font-size:1.55rem}
+
+.hero{background:linear-gradient(180deg,#f8faff 0%,#fff 100%);padding:105px 0 95px}
+
+.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:70px;align-items:center}
+
+.kicker{font-size:.78rem;font-weight:800;letter-spacing:1.7px;color:var(--blue)}
+
+h1{font-size:clamp(2.7rem,6vw,5.15rem);line-height:1.01;letter-spacing:-3.5px;margin:15px 0 23px;max-width:760px}
+
+h1 em{font-style:normal;color:var(--blue)}
+
+.lead{font-size:1.1rem;color:var(--muted);max-width:650px}
+
+.actions{display:flex;gap:12px;margin-top:31px;flex-wrap:wrap}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:9px;font-weight:750;transition:.2s}
+
+.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:var(--blue2);transform:translateY(-1px)}
+
+.btn-outline{border:1px solid #cfd5df;background:#fff}.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+
+.hero-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:0 22px 55px rgba(25,40,80,.08)}
+
+.profile{display:flex;gap:17px;align-items:center;padding-bottom:24px;border-bottom:1px solid var(--line)}
+
+.avatar{width:66px;height:66px;border-radius:18px;background:#eaf0ff;display:grid;place-items:center;font-weight:900;font-size:1.5rem;color:var(--blue);overflow:hidden}
+
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+  .profile-popup{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    z-index:200;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.profile-popup.open{
+    display:flex;
+}
+
+.profile-popup img{
+    max-width:90%;
+    max-height:85vh;
+    object-fit:contain;
+    border-radius:12px;
+}
+
+.profile-popup button{
+    position:absolute;
+    top:20px;
+    right:25px;
+    background:none;
+    border:none;
+    color:white;
+    font-size:35px;
+    cursor:pointer;
+}
+  
+  
+.profile h3{font-size:1.05rem}.profile p{color:var(--muted);font-size:.87rem}
+
+.card-list{list-style:none;padding-top:20px}.card-list li{padding:10px 0;font-size:.92rem;color:#475467}.card-list li::before{content:"✓";font-weight:900;color:var(--blue);margin-right:10px}
+
+.trust{padding:22px 0;border-bottom:1px solid var(--line);background:#fff}.trust-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.trust-item{font-size:.86rem;color:#667085}.trust-item strong{color:var(--ink);margin-right:5px}
+
+section{padding:90px 0}.soft{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.heading{max-width:700px;margin-bottom:40px}.heading .kicker{display:block;margin-bottom:8px}.heading h2{font-size:2.25rem;letter-spacing:-1.2px;line-height:1.15;margin-bottom:10px}.heading p{color:var(--muted)}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.about-copy p{color:var(--muted);margin-bottom:15px}
+
+.values{display:grid;grid-template-columns:1fr 1fr;gap:14px}.value{padding:23px;background:#fff;border:1px solid var(--line);border-radius:14px}.value b{display:block;margin-bottom:5px}.value span{font-size:.9rem;color:var(--muted)}
+
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.service{padding:28px;background:#fff;border:1px solid var(--line);border-radius:16px;transition:.2s}.service:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(20,30,60,.07)}.service-num{color:var(--blue);font-weight:800;font-size:.78rem}.service h3{margin:12px 0 8px}.service p{font-size:.92rem;color:var(--muted)}
+
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.step{padding:25px;border:1px solid var(--line);border-radius:15px}.step strong{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#eaf0ff;color:var(--blue);font-size:.82rem;margin-bottom:17px}.step h3{font-size:1rem;margin-bottom:6px}.step p{font-size:.88rem;color:var(--muted)}
+
+.tool-wrap{display:flex;gap:10px;flex-wrap:wrap}.tool{padding:10px 15px;border:1px solid var(--line);border-radius:8px;background:#fff;font-weight:650;font-size:.9rem}
+
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+
+.project-top{
+height:105px;
+background:#eef2ff;
+display:flex;
+align-items:flex-end;
+padding:20px;
+color:var(--blue);
+font-size:.75rem;
+font-weight:800;
+letter-spacing:1px;
+position:relative;
+}
+
+.company-icon{
+position:absolute;
+top:12px;
+left:50%;
+transform:translateX(-50%);
+width:54px;
+height:54px;
+border-radius:50%;
+overflow:hidden;
+background:#fff;
+border:1px solid var(--line);
+}
+
+.company-icon img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.project-label{
+position:absolute;
+left:20px;
+right:20px;
+bottom:20px;
+}
+
+.project-body{padding:25px}.project h3{margin-bottom:8px}.project p{font-size:.9rem;color:var(--muted)}.tags{margin-top:16px}.tag{display:inline-block;font-size:.75rem;background:#f1f3f8;padding:5px 8px;border-radius:5px;margin:0 5px 5px 0}
+
+.testimonial{
+max-width:820px;
+padding:35px;
+border:1px solid var(--line);
+border-radius:18px;
+background:#fff;
+}
+
+.testimonial-link{
+display:block;
+color:inherit;
+cursor:pointer;
+}
+
+.testimonial-person-image{
+width:88px;
+height:88px;
+margin:0 auto 12px;
+border-radius:50%;
+overflow:hidden;
+background:#eaf0ff;
+}
+
+.testimonial-person-image img{
+width: 100%;
+height: auto;
+object-fit: contain;
+display:block;
+}
+
+.testimonial-company-logo{
+width:40px;
+height:40px;
+margin:0 auto 2px;
+border-radius:50%;
+overflow:hidden;
+background:#fff;
+border:1px solid var(--line);
+}
+
+.testimonial-company-logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+  .testimonial-person-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3157d5;
+    margin: 2px 0 0;
+    text-align: center;
+}
+  
+  
+.quote{font-size:1.13rem;color:#344054}.person{margin-top:18px;font-weight:750}.person span{display:block;color:var(--muted);font-size:.84rem;font-weight:400}
+
+/* PROJECT STORY MODAL */
+
+.story-modal{
+display:none;
+position:fixed;
+inset:0;
+z-index:100;
+background:rgba(17,24,39,.58);
+padding:30px 15px;
+overflow-y:auto;
+}
+
+.story-modal.open{
+display:flex;
+align-items:flex-start;
+justify-content:center;
+}
+
+.story-box{
+width:min(850px,100%);
+max-height:90vh;
+background:#fff;
+border-radius:20px;
+border:1px solid var(--line);
+overflow-y:auto;
+overflow-x:hidden;
+box-shadow:0 25px 70px rgba(0,0,0,.2);
+margin:auto;
+}
+  
+  .story-header{
+position:sticky;
+top:0;
+z-index:5;
+}
+
+.story-close{
+position:absolute;
+right:18px;
+top:15px;
+width:38px;
+height:38px;
+border:0;
+border-radius:50%;
+background:#fff;
+font-size:1.5rem;
+line-height:1;
+cursor:pointer;
+z-index:20;
+color:var(--ink);
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.story-header{
+padding:38px 35px 30px;
+background:#eef2ff;
+border-bottom:1px solid var(--line);
+}
+
+.story-header .kicker{
+margin-bottom:8px;
+}
+
+.story-header h2{
+font-size:2rem;
+line-height:1.15;
+letter-spacing:-1px;
+margin-bottom:8px;
+}
+
+.story-header p{
+color:var(--muted);
+}
+
+.story-content{
+padding:35px;
+}
+
+.story-section{
+margin-bottom:30px;
+}
+
+  .story-section img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    display:block;
+    border-radius:12px;
+}
+  
+.story-section img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    display:block;
+    border-radius:12px;
+    cursor:pointer;
+}
+  
+.story-section:last-child{
+margin-bottom:0;
+}
+
+.story-section h3{
+font-size:1.05rem;
+margin-bottom:8px;
+}
+
+.story-section p{
+color:var(--muted);
+font-size:.94rem;
+}
+
+.story-details{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-bottom:30px;
+}
+
+.story-detail{
+padding:18px;
+background:var(--soft);
+border:1px solid var(--line);
+border-radius:12px;
+}
+
+.story-detail strong{
+display:block;
+font-size:.78rem;
+color:var(--blue);
+text-transform:uppercase;
+letter-spacing:.8px;
+margin-bottom:5px;
+}
+
+.story-detail span{
+font-size:.92rem;
+color:var(--ink);
+}
+
+
+.story-evidence{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    margin-top:18px;
+    padding:5px 2px 12px;
+    scrollbar-width:none;
+}
+
+.story-evidence::-webkit-scrollbar{
+    display:none;
+}
+
+.story-evidence div{
+    flex:0 0 75px;
+    height:260px;
+    border:1px solid var(--line);
+    border-radius:60px;
+    overflow:hidden;
+    background:#eef2ff;
+    cursor:pointer;
+}
+
+.story-evidence img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    cursor:pointer;
+}
+
+
+.story-link{
+display:inline-flex;
+margin-top:12px;
+padding:10px 15px;
+border-radius:8px;
+background:var(--blue);
+color:#fff;
+font-size:.88rem;
+font-weight:700;
+}
+
+.story-link:hover{
+background:var(--blue2);
+}
+
+.cta{background:var(--dark);color:#fff}.cta-grid{display:flex;align-items:center;justify-content:space-between;gap:40px}.cta h2{font-size:2.35rem;letter-spacing:-1px;line-height:1.15;margin-bottom:10px}.cta p{color:#b8c0cc;max-width:620px}.contact-info{margin-top:18px;color:#c8ced8;font-size:.9rem}.contact-info div{margin:5px 0}
+
+footer{background:#0b1119;color:#8f99a8;padding:25px 0;font-size:.83rem}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+@media(max-width:850px){
+.navlinks{display:none;position:absolute;top:74px;left:0;right:0;background:#fff;padding:18px 4%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}
+.navlinks.open{display:flex}
+.menu{display:block}
+.hero-grid,.about-grid{grid-template-columns:1fr}
+.hero{padding:75px 0}
+.services,.projects{grid-template-columns:1fr 1fr}
+.process{grid-template-columns:1fr 1fr}
+.cta-grid{flex-direction:column;align-items:flex-start}
+}
+
+@media(max-width:540px){
+h1{letter-spacing:-2px}
+.services,.projects,.process{grid-template-columns:1fr}
+.values{grid-template-columns:1fr}
+.hero-card{padding:23px}
+section{padding:70px 0}
+
+.story-modal{
+padding:15px 10px;
+}
+
+.story-header{
+padding:32px 22px 25px;
+}
+
+.story-header h2{
+font-size:1.65rem;
+}
+
+.story-content{
+padding:25px 22px;
+}
+
+.story-details{
+grid-template-columns:1fr;
+}
+
+.story-evidence{
+grid-template-columns:1fr;
+}
+}
+  
+  
+
+
+
+/* IMAGE VIEWER */
+
+.image-viewer{
+display:none;
+position:fixed;
+inset:0;
+z-index:300;
+background:rgba(10,14,28,.96);
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:22px;
+padding:55px 20px 25px;
+}
+
+.image-viewer.open{
+display:flex;
+}
+
+.image-viewer img{
+width:auto;
+max-width:85%;
+max-height:72vh;
+object-fit:contain;
+border-radius:16px;
+}
+
+.image-viewer-close{
+position:absolute;
+top:20px;
+right:25px;
+background:none;
+border:0;
+color:#fff;
+font-size:38px;
+cursor:pointer;
+}
+
+.image-viewer-controls{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:28px;
+}
+
+.image-viewer-arrow{
+width:20px;
+height:20px;
+border:0;
+border-radius:50%;
+background:rgba(255,255,255,.15);
+color:#fff;
+font-size:10px;
+cursor:pointer;
+}
+
+.image-counter{
+color:#fff;
+font-size:.95rem;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+<a href="#home" class="brand">Collins <span>Assistant Services</span></a>
+
+<button class="menu" aria-label="Menu">☰</button>
+
+<div class="navlinks">
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#process">How I Work</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#contact" class="nav-cta">Hire Me</a>
+</div>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+<div class="container hero-grid">
+
+<div>
+<div class="kicker">VIRTUAL ASSISTANT • ADMINISTRATIVE SUPPORT</div>
+
+<h1>Helping you stay <em>organized </em> and productive.</h1>
+
+<p class="lead">
+I’m Collins, a reliable and detail-oriented Virtual Assistant helping busy professionals and growing businesses manage the tasks that keep operations moving.
+</p>
+
+<div class="actions">
+<a class="btn btn-primary" href="#contact">Let's Work Together</a>
+<a class="btn btn-outline" href="#portfolio">View My Portfolio</a>
+</div>
+</div>
+
+<div class="hero-card">
+
+<div class="profile">
+
+<div class="avatar" onclick="openProfile()">
+    <img src="profile.png" alt="Collins">
+</div>
+
+<div>
+<h3>Collins</h3>
+<p>Virtual Assistant · Collins Assistant Services</p>
+</div>
+
+</div>
+
+<ul class="card-list">
+<li>Accurate data & spreadsheet management</li>
+<li>Inbox, email & calendar support</li>
+<li>CRM & lead organization</li>
+<li>Web research & information gathering</li>
+<li>Professional customer communication</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<div class="trust">
+<div class="container trust-row">
+<div class="trust-item"><strong>Detail-oriented</strong> with accuracy in mind</div>
+<div class="trust-item"><strong>Organized</strong> and process-focused</div>
+<div class="trust-item"><strong>Professional</strong> in communication</div>
+<div class="trust-item"><strong>Remote-ready</strong> and flexible</div>
+</div>
+</div>
+
+<section id="about">
+<div class="container about-grid">
+
+<div class="about-copy">
+
+<div class="heading">
+<span class="kicker">ABOUT ME</span>
+<h2>Reliable support you can count on.</h2>
+</div>
+
+<p>I provide practical virtual assistance that helps clients stay organized, responsive, and productive.</p>
+
+<p>My work combines administrative support, data management, research, CRM organization, and customer communication. I pay close attention to details and aim to complete every task clearly and accurately.</p>
+
+<p>Whether you need ongoing support or help with a specific project, I’m ready to become a dependable extension of your team.</p>
+
+</div>
+
+<div class="values">
+
+<div class="value">
+<b>Accuracy</b>
+<span>Careful handling of information, records, and repetitive tasks.</span>
+</div>
+
+<div class="value">
+<b>Organization</b>
+<span>Structured files, workflows, spreadsheets, and task management.</span>
+</div>
+
+<div class="value">
+<b>Communication</b>
+<span>Clear, professional, and timely client communication.</span>
+</div>
+
+<div class="value">
+<b>Efficiency</b>
+<span>Focused on reducing workload and keeping tasks moving.</span>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="soft" id="services">
+
+<div class="container">
+
+<div class="heading">
+<span class="kicker">SERVICES</span>
+<h2>What I can take off your plate</h2>
+<p>Flexible support for the everyday tasks that consume valuable time.</p>
+</div>
+
+<div class="services">
+
+<article class="service">
+<span class="service-num">01</span>
+<h3>Data Entry & Spreadsheets</h3>
+<p>Data input, spreadsheet updates, record keeping, cleanup, and organized information.</p>
+</article>
+
+<article class="service">
+<span class="service-num">02</span>
+<h3>Email & Calendar Management</h3>
+<p>Inbox organization, email handling, scheduling, appointments, reminders, and calendar support.</p>
+</article>
+
+<article class="service">
+<span class="service-num">03</span>
+<h3>CRM Management</h3>
+<p>Contact updates, lead records, CRM organization, follow-ups, and information maintenance.</p>
+</article>
+
+<article class="service">
+<span class="service-num">04</span>
+<h3>Web & Market Research</h3>
+<p>Online research, competitor research, information gathering, and clear research summaries.</p>
+</article>
+
+<article class="service">
+<span class="service-num">05</span>
+<h3>File & Document Organization</h3>
+<p>Digital filing, folder structures, document formatting, naming systems, and record organization.</p>
+</article>
+
+<article class="service">
+<span class="service-num">06</span>
+<h3>Customer Support</h3>
+<p>Professional chat, email responses, follow-ups, client communication, and support coordination.</p>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="process">
+
+<div class="container">
+
+<div class="heading">
+<span class="kicker">HOW I WORK</span>
+<h2>A simple process, built around your needs.</h2>
+</div>
+
+<div class="process">
+
+<div class="step">
+<strong>01</strong>
+<h3>Understand</h3>
+<p>I clarify the task, priorities, expectations, and desired outcome.</p>
+</div>
+
+<div class="step">
+<strong>02</strong>
+<h3>Organize</h3>
+<p>I structure the information and plan the work so nothing important is missed.</p>
+</div>
+
+<div class="step">
+<strong>03</strong>
+<h3>Execute</h3>
+<p>I complete the work carefully, efficiently, and according to your instructions.</p>
+</div>
+
+<div class="step">
+<strong>04</strong>
+<h3>Report</h3>
+<p>I provide clear updates and deliver organized work that is easy to review.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="soft">
+
+<div class="container">
+
+<div class="heading">
+<span class="kicker">TOOLS & SKILLS</span>
+<h2>Comfortable with the tools that keep work moving.</h2>
+</div>
+
+<div class="tool-wrap">
+<span class="tool">Microsoft Excel</span>
+<span class="tool">Google Sheets</span>
+<span class="tool">Google Drive</span>
+<span class="tool">Microsoft Word</span>
+<span class="tool">Canva</span>
+<span class="tool">CRM Platforms</span>
+<span class="tool">Lead Generation</span>
+<span class="tool">Social Media Management</span>
+<span class="tool">Professional Email</span>
+<span class="tool">Customer Support</span>
+</div>
+
+</div>
+</section>
+
+<section id="portfolio">
+
+<div class="container">
+
+<div class="heading">
+<span class="kicker">SELECTED WORK</span>
+<h2>Portfolio projects</h2>
+<p>A mix of practical, internship and demo projects showing how I approach organization, research, and administrative support.</p>
+</div>
+
+<div class="projects">
+
+<article class="project">
+
+<div class="project-top">
+
+<div class="company-icon">
+<img src="lead.png" alt="Company logo">
+</div>
+
+<div class="project-label">DEMO PROJECT</div>
+
+</div>
+
+<div class="project-body">
+<h3>Lead Generation Research</h3>
+
+<p>
+Researched target companies, identified relevant decision-makers, and organized lead information for outreach.
+</p>
+
+<div class="tags">
+<span class="tag">Research</span>
+<span class="tag">Lead Generation</span>
+<span class="tag">Data</span>
+</div>
+</div>
+
+</article>
+
+
+<article class="project">
+
+<div class="project-top">
+
+<div class="company-icon">
+<img src="crm.png" alt="Company logo">
+</div>
+
+<div class="project-label">DEMO PROJECT</div>
+
+</div>
+
+<div class="project-body">
+<h3>CRM Workflow</h3>
+
+<p>
+Built a structured workflow for organizing contacts, tracking follow-ups, and maintaining customer information.
+</p>
+
+<div class="tags">
+<span class="tag">CRM</span>
+<span class="tag">Organization</span>
+<span class="tag">Follow-up</span>
+</div>
+</div>
+
+</article>
+
+
+<article class="project">
+
+<div class="project-top">
+
+<div class="company-icon">
+<img src="hbtlogo.png" alt="Company logo">
+</div>
+
+<div class="project-label">EVENT PROJECT</div>
+
+</div>
+
+<div class="project-body">
+<h3>Event Data Collection</h3>
+
+<p>
+Supported participant data collection, attendance tracking, verification, and organized event documentation as a team lead.
+</p>
+
+<div class="tags">
+<span class="tag">Data Entry</span>
+<span class="tag">Coordination</span>
+<span class="tag">Records</span>
+</div>
+</div>
+
+</article>
+
+</div>
+</div>
+</section>
+
+
+<section id="testimonials" class="soft">
+
+<div class="container">
+
+<div class="heading">
+<span class="kicker">TESTIMONIALS</span>
+<h2>What people say</h2>
+</div>
+
+
+<a href="#" class="testimonial-link" data-story="testimonial1">
+
+<div class="testimonial">
+
+<div class="testimonial-person-image">
+<img src="pp.png" alt="Project Lead">
+</div>
+
+<div class="testimonial-company-logo">
+<img src="hbtlogo.png" alt="Company logo">
+</div>
+<p class="testimonial-person-name">Anicho Stella</p>
+  <p style="text-align: center;
+    font-size: 10px;
+    margin-top: 1.5px 0 15px;">
+    <i>Founder, Her Bold Tribe (HBT)</i>
+</p>
+  <br>
+<p class="quote">
+“Collins was organized, attentive to details, and committed to getting the work done properly.”
+</p>
+
+<div class="person">
+Project Lead
+<span>Client / Project Collaboration</span>
+</div>
+
+</div>
+
+</a>
+
+</div>
+</section>
+
+
+<!-- TESTIMONIAL / PROJECT STORY MODAL -->
+
+<div class="story-modal" id="testimonial1" aria-hidden="true">
+
+<div class="story-box" role="dialog" aria-modal="true" aria-labelledby="story-title">
+
+<button class="story-close" aria-label="Close">&times;</button>
+
+<div class="story-header">
+
+<div class="kicker">PROJECT STORY</div>
+
+<h2 id="story-title">South-East Creative Boot-Camp --HerBoldTribe (HBT)</h2>
+
+<p>
+A closer look at the work, responsibilities, contribution, and supporting evidence.
+</p>
+
+</div>
+
+
+<div class="story-content">
+
+<div class="story-details">
+
+<div class="story-detail">
+<strong>Role</strong>
+<span><b>Data Collector.</b>
+  <br><i>Team Lead</i>.</span>
+</div>
+
+<div class="story-detail">
+<strong>Project Type</strong>
+<span>Volunteer</span>
+</div>
+
+<div class="story-detail">
+<strong>Organization</strong>
+<span>HerBoldTribe</span>
+</div>
+
+<div class="story-detail">
+<strong>Period</strong>
+<span><b>3 Days</b>
+  <div><i>17th - 19th August, 2026 </i>
+</span>
+  
+</div>
+
+</div>
+
+
+<div class="story-section">
+
+<h3>What I Did</h3>
+
+<p>- Led the Data Collection Team, overseeing the collection, verification, organization, and maintenance of participant information throughout the multi-day bootcamp. <br>- Coordinated registration and attendance records for participants, volunteers, and officials, monitored the distribution of programme materials, and documented daily activities and operational observations. <br>-Also contributed to daily reporting, ensuring accurate records and organized documentation to support programme monitoring and evaluation.
+  
+  <br><b>Key Contributions:</b>
+  <br>
+- Team leadership and coordination.<br>
+- Participant registration and data management.<br>
+- Attendance tracking and record keeping.<br>
+- Event documentation and daily reporting.<br>
+- Resource distribution and inventory tracking.<br>
+- Identification of data inconsistencies and administrative issues.
+</p>
+
+</div>
+
+
+<div class="story-section">
+
+<h3>Work & Responsibilities</h3>
+
+<p>
+• Administrative coordination.<br>
+• Communication and follow-up.<br>
+• Data collection and organization.<br>
+• Research and information gathering.<br>
+• Record verification and maintenance.<br>
+
+</p>
+
+</div>
+
+
+<div class="story-section">
+
+<h3>Results / Contribution</h3>
+
+<p>
+- Supported the effective coordination of the Data Collection Team throughout the multi-day bootcamp.
+  <br>- Helped maintain organized participant registration and attendance records for participants, volunteers, and officials.
+  <br>- Improved record accuracy by identifying incomplete registration forms, missing information, and duplicate identification tags.
+  <br>- Contributed to structured documentation of daily activities, training sessions, and programme developments.
+  <br>- Supported resource accountability by tracking the distribution and remaining quantities of bootcamp materials, including books, shirts, and pens.
+  <br>- Contributed to daily reports that provided a documented overview of programme activities, observations, and administrative developments.
+  <br>- Strengthened the organization's record-keeping and documentation process, supporting programme monitoring and evaluation.
+</p>
+
+</div>
+
+
+<div class="story-section">
+
+<h3>Project Evidence</h3>
+
+<div class="story-evidence">
+
+<div>
+<img src="hbt1.png" alt="Project evidence">
+</div>
+
+<div>
+<img src="hbt2.png" alt="Project evidence">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="story-section">
+
+<h3>What the Project Owner Shared</h3>
+
+<p>
+Organization's Needs
+
+Her Bold Tribe needed an organized and dependable data collection and management process for its Southeast Creatives Bootcamp 2026. With participants, volunteers, facilitators, and officials involved in a multi-day programme, the organization required a team to manage essential information and maintain accurate programme records.
+
+The organization needed to:
+
+  <br>- Establish an organized system for collecting and managing participants' registration information.
+  <br>- Monitor daily attendance and maintain records of participants, volunteers, and officials.
+  <br>- Ensure the accuracy, completeness, and proper organization of collected data.
+  <br>- Document daily programme activities and maintain records for reporting purposes.
+  <br>- Track the distribution of bootcamp materials and maintain accountability for available resources.
+  <br>- Identify missing information, inconsistencies, and administrative gaps.
+  <br>- Provide proper documentation to support programme monitoring, evaluation, and future planning.
+  <p>
+The overall expectation was to ensure that important information generated throughout the bootcamp was accurately captured, properly managed, and documented. </p>
+</p>
+
+</div>
+
+
+<div class="story-section">
+
+<h3>Testimonial</h3>
+
+ <img src="Collins-testimonial.jpg"
+     alt="Collins' Testimonial"
+     class="testimonial-main-image"
+     onclick="openTestimonialImage(this)">
+</div>
+
+</div>
+
+
+<div class="story-section">
+
+<h3>More About This Work</h3>
+
+<p>
+https://www.instagram.com/herboldtribe?rpxt=MWQ1Y2p3anE4OW9vbg==
+</p>
+
+<a href="#" class="story-link" target="_blank" rel="noopener">
+View Project / Post
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<section class="cta" id="contact">
+
+<div class="container cta-grid">
+
+<div>
+
+<div class="kicker">LET'S WORK TOGETHER</div>
+
+<h2>Ready to clear your table?</h2>
+
+<p>
+Give yourself more time to focus on important work. I can help with the administrative tasks behind the scenes.
+</p>
+
+<div class="contact-info">
+<div>📧 uchechukwucollins081@gmail. om.com</div>
+<div>📱 +234 802 659 9620</div>
+</div>
+
+</div>
+
+<div>
+<a class="btn btn-primary" href="https://wa.me/2348026599620">
+Message Me on WhatsApp
+</a>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+
+<div class="container footer-row">
+
+<span>© 2026 Collins Assistant Services</span>
+
+<span>Virtual Assistant · Administrative Support</span>
+
+</div>
+
+</footer>
+
+
+<script>
+/* MOBILE MENU */
+
+const menu=document.querySelector('.menu');
+const links=document.querySelector('.navlinks');
+
+menu.addEventListener('click',()=>{
+    links.classList.toggle('open');
+});
+
+document.querySelectorAll('.navlinks a').forEach(a=>{
+    a.addEventListener('click',()=>{
+        links.classList.remove('open');
+    });
+});
+
+
+/* TESTIMONIAL / PROJECT STORY MODAL */
+
+const testimonialLink=document.querySelector('.testimonial-link');
+const storyModal=document.getElementById('testimonial1');
+const closeStory=storyModal.querySelector('.story-close');
+
+testimonialLink.addEventListener('click',(e)=>{
+    e.preventDefault();
+
+    storyModal.classList.add('open');
+    storyModal.setAttribute('aria-hidden','false');
+
+    document.body.style.overflow='hidden';
+});
+
+
+function closeStoryModal(){
+
+    storyModal.classList.remove('open');
+    storyModal.setAttribute('aria-hidden','true');
+
+    document.body.style.overflow='';
+
+}
+
+
+closeStory.addEventListener('click',closeStoryModal);
+
+
+/* CLOSE WHEN CLICKING OUTSIDE THE STORY */
+
+storyModal.addEventListener('click',(e)=>{
+
+    if(e.target===storyModal){
+        closeStoryModal();
+    }
+
+});
+
+
+/* CLOSE WITH ESCAPE */
+
+document.addEventListener('keydown',(e)=>{
+
+    if(e.key==='Escape' && storyModal.classList.contains('open')){
+        closeStoryModal();
+    }
+
+});
+
+
+/* PROFILE IMAGE POPUP */
+
+function openProfile(){
+    document.getElementById("profilePopup").classList.add("open");
+}
+
+function closeProfile(){
+    document.getElementById("profilePopup").classList.remove("open");
+}
+
+
+/* PROJECT EVIDENCE IMAGE VIEWER */
+
+let evidenceImages = [];
+let currentEvidenceIndex = 0;
+
+function openImageViewer(index){
+
+    evidenceImages = Array.from(
+        document.querySelectorAll(".story-evidence img")
+    );
+
+    currentEvidenceIndex = index;
+
+    updateExpandedImage();
+
+    document.getElementById("imageViewer").classList.add("open");
+
+}
+
+
+function updateExpandedImage(){
+
+    document.getElementById("expandedImage").src =
+        evidenceImages[currentEvidenceIndex].src;
+
+    document.getElementById("imageCounter").textContent =
+        `${currentEvidenceIndex + 1} of ${evidenceImages.length}`;
+
+}
+
+
+function closeImageViewer(){
+
+    document.getElementById("imageViewer").classList.remove("open");
+
+}
+
+
+function changeImage(direction){
+
+    if(!evidenceImages.length) return;
+
+    currentEvidenceIndex =
+        (currentEvidenceIndex + direction + evidenceImages.length)
+        % evidenceImages.length;
+
+    updateExpandedImage();
+
+}
+
+
+/* CLICK ANY PROJECT EVIDENCE IMAGE */
+
+document.querySelectorAll(".story-evidence img").forEach((image, index)=>{
+
+    image.addEventListener("click",()=>{
+        openImageViewer(index);
+    });
+
+});
+
+
+/* TESTIMONIAL IMAGE VIEWER */
+
+function openTestimonialImage(image){
+
+    document.getElementById("expandedImage").src = image.src;
+
+    document.getElementById("imageViewer").classList.add("open");
+
+    document.querySelector(".image-viewer-controls").style.display = "none";
+
+}
+</script>
+
+<div class="profile-popup" id="profilePopup">
+
+    <button onclick="closeProfile()">&times;</button>
+
+    <img src="profile.png" alt="Collins full profile picture">
+
+</div>
+
+
+<div class="image-viewer" id="imageViewer">
+
+    <button type="button"
+    class="image-viewer-close"
+    onclick="closeImageViewer()">&times;</button>
+
+    <img id="expandedImage"
+    src=""
+    alt="Project evidence">
+
+    <div class="image-viewer-controls">
+
+        <button type="button"
+        class="image-viewer-arrow"
+        onclick="changeImage(-1)">&#10094;</button>
+
+        <span class="image-counter" id="imageCounter">
+            1 of 1
+        </span>
+
+        <button type="button"
+        class="image-viewer-arrow"
+        onclick="changeImage(1)">&#10095;</button>
+
+    </div>
+
+</div>
+
+</body>
+</html>
